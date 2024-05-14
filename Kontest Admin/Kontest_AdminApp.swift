@@ -11,9 +11,12 @@ import SwiftUI
 struct Kontest_AdminApp: App {
     let dependencies = Dependencies.instance
     
+    @State private var router = Router.instance
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(router)
         }
     }
 }
