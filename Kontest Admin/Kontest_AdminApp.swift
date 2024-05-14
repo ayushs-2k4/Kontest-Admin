@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct Kontest_AdminApp: App {
+    let dependencies = Dependencies.instance
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

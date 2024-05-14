@@ -14,6 +14,9 @@
 		073E8C042BF374E100B64A46 /* Kontest_AdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C032BF374E100B64A46 /* Kontest_AdminTests.swift */; };
 		073E8C0E2BF374E100B64A46 /* Kontest_AdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C0D2BF374E100B64A46 /* Kontest_AdminUITests.swift */; };
 		073E8C102BF374E100B64A46 /* Kontest_AdminUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C0F2BF374E100B64A46 /* Kontest_AdminUITestsLaunchTests.swift */; };
+		073E8C202BF3759C00B64A46 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 073E8C1F2BF3759C00B64A46 /* FirebaseAnalytics */; };
+		073E8C222BF376C900B64A46 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C212BF376C900B64A46 /* Dependencies.swift */; };
+		073E8C242BF3789600B64A46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 073E8C232BF3789600B64A46 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,8 @@
 		073E8C092BF374E100B64A46 /* Kontest AdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Kontest AdminUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		073E8C0D2BF374E100B64A46 /* Kontest_AdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kontest_AdminUITests.swift; sourceTree = "<group>"; };
 		073E8C0F2BF374E100B64A46 /* Kontest_AdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kontest_AdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		073E8C212BF376C900B64A46 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		073E8C232BF3789600B64A46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073E8C202BF3759C00B64A46 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,11 +101,13 @@
 		073E8BF02BF374E000B64A46 /* Kontest Admin */ = {
 			isa = PBXGroup;
 			children = (
+				073E8C232BF3789600B64A46 /* GoogleService-Info.plist */,
 				073E8BF12BF374E000B64A46 /* Kontest_AdminApp.swift */,
 				073E8BF32BF374E000B64A46 /* ContentView.swift */,
 				073E8BF52BF374E100B64A46 /* Assets.xcassets */,
 				073E8BF72BF374E100B64A46 /* Kontest_Admin.entitlements */,
 				073E8BF82BF374E100B64A46 /* Preview Content */,
+				073E8C212BF376C900B64A46 /* Dependencies.swift */,
 			);
 			path = "Kontest Admin";
 			sourceTree = "<group>";
@@ -145,6 +153,9 @@
 			dependencies = (
 			);
 			name = "Kontest Admin";
+			packageProductDependencies = (
+				073E8C1F2BF3759C00B64A46 /* FirebaseAnalytics */,
+			);
 			productName = "Kontest Admin";
 			productReference = 073E8BEE2BF374E000B64A46 /* Kontest Admin.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +228,9 @@
 				Base,
 			);
 			mainGroup = 073E8BE52BF374E000B64A46;
+			packageReferences = (
+				073E8C1E2BF3759C00B64A46 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 073E8BEF2BF374E000B64A46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -235,6 +249,7 @@
 			files = (
 				073E8BFA2BF374E100B64A46 /* Preview Assets.xcassets in Resources */,
 				073E8BF62BF374E100B64A46 /* Assets.xcassets in Resources */,
+				073E8C242BF3789600B64A46 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073E8C222BF376C900B64A46 /* Dependencies.swift in Sources */,
 				073E8BF42BF374E000B64A46 /* ContentView.swift in Sources */,
 				073E8BF22BF374E000B64A46 /* Kontest_AdminApp.swift in Sources */,
 			);
@@ -617,6 +633,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		073E8C1E2BF3759C00B64A46 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		073E8C1F2BF3759C00B64A46 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 073E8C1E2BF3759C00B64A46 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 073E8BE62BF374E000B64A46 /* Project object */;
 }
