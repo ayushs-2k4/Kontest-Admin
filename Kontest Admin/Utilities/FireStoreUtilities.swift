@@ -38,7 +38,7 @@ class FireStoreUtilities {
 
     // Users
     let usersCollection = Firestore.firestore().collection("users")
-    
+
     func userDocument(userId: String) -> DocumentReference {
         return usersCollection.document(userId)
     }

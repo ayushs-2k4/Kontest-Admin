@@ -5,12 +5,12 @@
 //  Created by Ayush Singhal on 14/05/24.
 //
 
-import SwiftUI
 import OSLog
+import SwiftUI
 
 struct SignInScreen: View {
     private let logger = Logger(subsystem: "com.ayushsinghal.Kontest-Admin", category: "SignInScreen")
-    
+
     let authenticationEmailViewModel: AuthenticationEmailViewModel = .shared
 
     @State private var isPasswordFieldVisible: Bool = false
@@ -18,6 +18,8 @@ struct SignInScreen: View {
     @FocusState private var focusedField: SignInTextField?
 
     @Environment(Router.self) private var router
+
+    let shouldShowSignUpScreen: Bool = true
 
     var body: some View {
         VStack {
@@ -77,12 +79,14 @@ struct SignInScreen: View {
                         .padding(.horizontal, 1)
                 }
 
-                Button {
-                    authenticationEmailViewModel.clearPasswordFields()
-                    router.popLastScreen()
-                    router.appendScreen(screen: Screen.SettingsScreenType(.AuthenticationScreenType(.SignUpScreen)))
-                } label: {
-                    Text("Sign Up Instead")
+                if shouldShowSignUpScreen {
+                    Button {
+                        authenticationEmailViewModel.clearPasswordFields()
+                        router.popLastScreen()
+                        router.appendScreen(screen: Screen.SettingsScreenType(.AuthenticationScreenType(.SignUpScreen)))
+                    } label: {
+                        Text("Sign Up Instead")
+                    }
                 }
 
                 Button("Continue") {
@@ -122,6 +126,7 @@ struct SignInScreen: View {
 
             .padding(.horizontal)
         }
+        .navigationTitle("Sign In")
         .onAppear {
             self.focusedField = .email
         }

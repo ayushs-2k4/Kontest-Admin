@@ -13,8 +13,11 @@ import OSLog
 final class AuthenticationEmailViewModel {
     private let logger = Logger(subsystem: "com.ayushsinghal.Kontest-Admin", category: "AuthenticationEmailViewModel")
 
+    var firstName: String = ""
+    var lastName: String = ""
     var email: String = ""
     var password: String = ""
+    var confirmPassword: String = ""
 
     var isLoading: Bool = false
 
@@ -46,8 +49,8 @@ final class AuthenticationEmailViewModel {
             logger.log("returnedUserData: \("\(returnedUserData)")")
 
             let uid = returnedUserData.email ?? returnedUserData.uid
-
-            let adminData = try await AdminManager.shared.getAdmin(adminId: uid)
+            
+            let loggedInPersonData = try await AdminManager.shared.getAdmin(adminId: uid)
 
             self.isLoading = false
             return true
@@ -78,6 +81,7 @@ final class AuthenticationEmailViewModel {
             } else if nsError.domain == ErrorDomains.adminNotInDatabase.domain // User is present but is not an admin
             {
                 do {
+                    self.error = AppError(title: "You are not an admin", description: "Please sign in via admin account. To make an admin account, \ncontact Support - ayushsinghals02@gmail.com")
                     print("Logged in user which is not present in database, Signing out ...")
                     try AuthenticationManager.shared.signOut()
                     print("Logged out the user successfully which was not in database.")
@@ -97,16 +101,84 @@ final class AuthenticationEmailViewModel {
             return false
         }
     }
+    
+    func signUp() async -> Bool {
+        isLoading = true
+
+        guard !email.isEmpty,!password.isEmpty else {
+            error = AppError(title: "Email or Password is Empty", description: "")
+            logger.error("No email or password found.")
+            return false
+        }
+
+        do {
+            let returnedUserData = try await AuthenticationManager.shared.createNewUser(email: email, password: password)
+            logger.log("Success in signing up with email - password")
+            logger.log("returnedUserData: \("\(returnedUserData)")")
+
+            self.isLoading = false
+
+            try AdminManager.shared.createNewAdmin(
+                auth: returnedUserData,
+                firstName: self.firstName,
+                lastName: self.lastName
+            )
+
+            return true
+        } catch {
+            let nsError = error as NSError
+
+            if nsError.domain == "FIRAuthErrorDomain" { // checks if error is related to FirebaseAuth
+                let errorCode = AuthErrorCode(_nsError: nsError)
+
+                switch errorCode {
+                case AuthErrorCode.userDisabled:
+                    self.error = AppError(title: "Your Account has been disabled.", description: "Contact Support - ayushsinghals02@gmail.com")
+
+                case AuthErrorCode.tooManyRequests:
+                    self.error = AppError(title: "Your Account has been temporarily disabled due to multiple wrong attempts.", description: "Contact Support - ayushsinghals02@gmail.com")
+
+                case AuthErrorCode.invalidEmail:
+                    self.error = AppError(title: "Email is in invalid format.", description: "Please provide a valid email address.")
+
+                case AuthErrorCode.emailAlreadyInUse:
+                    self.error = AppError(title: "Email is already in use.", description: "Please use a different email address or sign in.")
+
+                case AuthErrorCode.weakPassword:
+                    self.error = AppError(title: "Password is weak.", description: "Your password must be at least 6 characters long.")
+
+                case AuthErrorCode.operationNotAllowed:
+                    self.error = AppError(title: "Signup is currently Not Allowed.", description: "Email/password signup is disabled for these credentials.")
+
+                default:
+                    logger.error("\(error)")
+                    self.error = error
+                }
+            } else {
+                logger.error("\(error)")
+                self.error = error
+            }
+
+            logger.error("Error in siging up with email - password: \(error)")
+
+            self.isLoading = false
+            return false
+        }
+    }
 
     func clearAllFields() {
         self.email = ""
         self.password = ""
+        self.confirmPassword = ""
+        self.firstName = ""
+        self.lastName = ""
         self.isLoading = false
         self.error = nil
     }
 
     func clearPasswordFields() {
         self.password = ""
+        self.confirmPassword = ""
         self.isLoading = false
         self.error = nil
     }

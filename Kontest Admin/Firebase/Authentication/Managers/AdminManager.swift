@@ -34,7 +34,7 @@ final class AdminManager {
         try FireStoreUtilities.instance.adminDocument(adminId: admin.adminId).setData(from: admin, merge: false, encoder: FireStoreUtilities.instance.firestoreEncoder)
     }
 
-    func createNewAdmin(auth: AuthDataResultModel, firstName: String, lastName: String, selectedCollegeState: String, selectedCollege: String) throws {
+    func createNewAdmin(auth: AuthDataResultModel, firstName: String, lastName: String) throws {
         try createNewAdmin(
             admin: DBAdminUser(
                 adminId: auth.email ?? auth.uid,

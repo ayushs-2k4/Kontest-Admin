@@ -27,5 +27,5 @@ enum SettingsScreens: Hashable {
 enum AuthenticationScreens {
     case SignInScreen
     case SignUpScreen
-    case AccountInformationScreen
+//    case AccountInformationScreen
 }

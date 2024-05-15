@@ -28,10 +28,10 @@ class Router {
     private init() {}
 
     func appendScreen(screen: Screen) {
-        if path.contains(.screen(.SettingsScreen)), screen == .SettingsScreen {
-        } else {
+//        if path.contains(.screen(.SettingsScreen)), screen == .SettingsScreen {
+//        } else {
             path.append(SelectionState.screen(screen))
-        }
+//        }
     }
 
     func popLastScreen() {

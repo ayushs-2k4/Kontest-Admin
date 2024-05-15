@@ -30,6 +30,20 @@
 		073E8C402BF3857500B64A46 /* ErrorDomains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C3F2BF3857500B64A46 /* ErrorDomains.swift */; };
 		073E8C442BF38D1B00B64A46 /* DataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C432BF38D1B00B64A46 /* DataViewModel.swift */; };
 		073E8C472BF38DBD00B64A46 /* FireStoreUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C462BF38DBD00B64A46 /* FireStoreUtilities.swift */; };
+		073E8C4A2BF39CD200B64A46 /* CodeForcesUserInfoAPIDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C492BF39CD200B64A46 /* CodeForcesUserInfoAPIDTO.swift */; };
+		073E8C4C2BF39CDF00B64A46 /* CodeForcesUserRatingAPIDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C4B2BF39CDF00B64A46 /* CodeForcesUserRatingAPIDTO.swift */; };
+		073E8C4F2BF39CFA00B64A46 /* CodeForcesUserRatingAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C4E2BF39CFA00B64A46 /* CodeForcesUserRatingAPIModel.swift */; };
+		073E8C512BF39D0B00B64A46 /* CodeForcesUserInfoAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C502BF39D0B00B64A46 /* CodeForcesUserInfoAPIModel.swift */; };
+		073E8C542BF39D3800B64A46 /* CodeForcesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C532BF39D3800B64A46 /* CodeForcesViewModel.swift */; };
+		073E8C572BF39D7600B64A46 /* CodeForcesAPIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C562BF39D7600B64A46 /* CodeForcesAPIRepository.swift */; };
+		073E8C5A2BF39D8E00B64A46 /* CodeForcesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C592BF39D8E00B64A46 /* CodeForcesFetcher.swift */; };
+		073E8C5C2BF39DA800B64A46 /* DownloadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C5B2BF39DA800B64A46 /* DownloadData.swift */; };
+		073E8C5F2BF39E1D00B64A46 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = 073E8C5E2BF39E1D00B64A46 /* Apollo */; };
+		073E8C612BF39E5200B64A46 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C602BF39E5200B64A46 /* Constants.swift */; };
+		073E8C652BF48BE700B64A46 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C642BF48BE700B64A46 /* ViewModel.swift */; };
+		073E8C682BF48E6E00B64A46 /* AllUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C672BF48E6E00B64A46 /* AllUsersView.swift */; };
+		073E8C6A2BF491E100B64A46 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C692BF491E100B64A46 /* SignUpScreen.swift */; };
+		073E8C6E2BF4B44500B64A46 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C6D2BF4B44500B64A46 /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +87,19 @@
 		073E8C3F2BF3857500B64A46 /* ErrorDomains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDomains.swift; sourceTree = "<group>"; };
 		073E8C432BF38D1B00B64A46 /* DataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModel.swift; sourceTree = "<group>"; };
 		073E8C462BF38DBD00B64A46 /* FireStoreUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreUtilities.swift; sourceTree = "<group>"; };
+		073E8C492BF39CD200B64A46 /* CodeForcesUserInfoAPIDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesUserInfoAPIDTO.swift; sourceTree = "<group>"; };
+		073E8C4B2BF39CDF00B64A46 /* CodeForcesUserRatingAPIDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesUserRatingAPIDTO.swift; sourceTree = "<group>"; };
+		073E8C4E2BF39CFA00B64A46 /* CodeForcesUserRatingAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesUserRatingAPIModel.swift; sourceTree = "<group>"; };
+		073E8C502BF39D0B00B64A46 /* CodeForcesUserInfoAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesUserInfoAPIModel.swift; sourceTree = "<group>"; };
+		073E8C532BF39D3800B64A46 /* CodeForcesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesViewModel.swift; sourceTree = "<group>"; };
+		073E8C562BF39D7600B64A46 /* CodeForcesAPIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesAPIRepository.swift; sourceTree = "<group>"; };
+		073E8C592BF39D8E00B64A46 /* CodeForcesFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeForcesFetcher.swift; sourceTree = "<group>"; };
+		073E8C5B2BF39DA800B64A46 /* DownloadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadData.swift; sourceTree = "<group>"; };
+		073E8C602BF39E5200B64A46 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		073E8C642BF48BE700B64A46 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		073E8C672BF48E6E00B64A46 /* AllUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUsersView.swift; sourceTree = "<group>"; };
+		073E8C692BF491E100B64A46 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
+		073E8C6D2BF4B44500B64A46 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073E8C5F2BF39E1D00B64A46 /* Apollo in Frameworks */,
 				073E8C202BF3759C00B64A46 /* FirebaseAnalytics in Frameworks */,
 				073E8C312BF3799A00B64A46 /* FirebaseAuth in Frameworks */,
 				073E8C352BF37C0900B64A46 /* FirebaseFirestore in Frameworks */,
@@ -128,6 +156,12 @@
 		073E8BF02BF374E000B64A46 /* Kontest Admin */ = {
 			isa = PBXGroup;
 			children = (
+				073E8C662BF48E5800B64A46 /* Screens */,
+				073E8C582BF39D8800B64A46 /* Protocols */,
+				073E8C552BF39D6900B64A46 /* Repositories */,
+				073E8C522BF39D2A00B64A46 /* ViewModels */,
+				073E8C4D2BF39CF700B64A46 /* Models */,
+				073E8C482BF39CCC00B64A46 /* DTOs */,
 				073E8C412BF38D0200B64A46 /* Firebase */,
 				073E8C232BF3789600B64A46 /* GoogleService-Info.plist */,
 				073E8BF12BF374E000B64A46 /* Kontest_AdminApp.swift */,
@@ -180,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				073E8C272BF3790D00B64A46 /* SignInScreen.swift */,
+				073E8C692BF491E100B64A46 /* SignUpScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -216,6 +251,8 @@
 				073E8C3D2BF37F3E00B64A46 /* AppError.swift */,
 				073E8C3F2BF3857500B64A46 /* ErrorDomains.swift */,
 				073E8C462BF38DBD00B64A46 /* FireStoreUtilities.swift */,
+				073E8C5B2BF39DA800B64A46 /* DownloadData.swift */,
+				073E8C602BF39E5200B64A46 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -245,6 +282,58 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		073E8C482BF39CCC00B64A46 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				073E8C492BF39CD200B64A46 /* CodeForcesUserInfoAPIDTO.swift */,
+				073E8C4B2BF39CDF00B64A46 /* CodeForcesUserRatingAPIDTO.swift */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		073E8C4D2BF39CF700B64A46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				073E8C4E2BF39CFA00B64A46 /* CodeForcesUserRatingAPIModel.swift */,
+				073E8C502BF39D0B00B64A46 /* CodeForcesUserInfoAPIModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		073E8C522BF39D2A00B64A46 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				073E8C532BF39D3800B64A46 /* CodeForcesViewModel.swift */,
+				073E8C642BF48BE700B64A46 /* ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		073E8C552BF39D6900B64A46 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				073E8C562BF39D7600B64A46 /* CodeForcesAPIRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		073E8C582BF39D8800B64A46 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				073E8C592BF39D8E00B64A46 /* CodeForcesFetcher.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		073E8C662BF48E5800B64A46 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				073E8C672BF48E6E00B64A46 /* AllUsersView.swift */,
+				073E8C6D2BF4B44500B64A46 /* SettingsScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -266,6 +355,7 @@
 				073E8C302BF3799A00B64A46 /* FirebaseAuth */,
 				073E8C342BF37C0900B64A46 /* FirebaseFirestore */,
 				073E8C362BF37C0900B64A46 /* FirebaseFirestoreSwift */,
+				073E8C5E2BF39E1D00B64A46 /* Apollo */,
 			);
 			productName = "Kontest Admin";
 			productReference = 073E8BEE2BF374E000B64A46 /* Kontest Admin.app */;
@@ -341,6 +431,7 @@
 			mainGroup = 073E8BE52BF374E000B64A46;
 			packageReferences = (
 				073E8C1E2BF3759C00B64A46 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				073E8C5D2BF39E1D00B64A46 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = 073E8BEF2BF374E000B64A46 /* Products */;
 			projectDirPath = "";
@@ -386,16 +477,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				073E8C3A2BF37EA000B64A46 /* Router.swift in Sources */,
+				073E8C612BF39E5200B64A46 /* Constants.swift in Sources */,
+				073E8C572BF39D7600B64A46 /* CodeForcesAPIRepository.swift in Sources */,
 				073E8C2B2BF3791C00B64A46 /* AuthenticationEmailViewModel.swift in Sources */,
 				073E8C472BF38DBD00B64A46 /* FireStoreUtilities.swift in Sources */,
+				073E8C652BF48BE700B64A46 /* ViewModel.swift in Sources */,
 				073E8C3E2BF37F3E00B64A46 /* AppError.swift in Sources */,
+				073E8C4C2BF39CDF00B64A46 /* CodeForcesUserRatingAPIDTO.swift in Sources */,
 				073E8C222BF376C900B64A46 /* Dependencies.swift in Sources */,
 				073E8C402BF3857500B64A46 /* ErrorDomains.swift in Sources */,
+				073E8C6A2BF491E100B64A46 /* SignUpScreen.swift in Sources */,
+				073E8C4A2BF39CD200B64A46 /* CodeForcesUserInfoAPIDTO.swift in Sources */,
+				073E8C682BF48E6E00B64A46 /* AllUsersView.swift in Sources */,
 				073E8C332BF37B3B00B64A46 /* AdminManager.swift in Sources */,
 				073E8C282BF3790D00B64A46 /* SignInScreen.swift in Sources */,
+				073E8C5C2BF39DA800B64A46 /* DownloadData.swift in Sources */,
 				073E8C3C2BF37ECC00B64A46 /* Screen.swift in Sources */,
+				073E8C5A2BF39D8E00B64A46 /* CodeForcesFetcher.swift in Sources */,
+				073E8C512BF39D0B00B64A46 /* CodeForcesUserInfoAPIModel.swift in Sources */,
 				073E8C442BF38D1B00B64A46 /* DataViewModel.swift in Sources */,
+				073E8C6E2BF4B44500B64A46 /* SettingsScreen.swift in Sources */,
 				073E8C2E2BF3797D00B64A46 /* AuthenticationManager.swift in Sources */,
+				073E8C4F2BF39CFA00B64A46 /* CodeForcesUserRatingAPIModel.swift in Sources */,
+				073E8C542BF39D3800B64A46 /* CodeForcesViewModel.swift in Sources */,
 				073E8BF42BF374E000B64A46 /* ContentView.swift in Sources */,
 				073E8BF22BF374E000B64A46 /* Kontest_AdminApp.swift in Sources */,
 			);
@@ -764,6 +868,14 @@
 				minimumVersion = 10.26.0;
 			};
 		};
+		073E8C5D2BF39E1D00B64A46 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.10.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -786,6 +898,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 073E8C1E2BF3759C00B64A46 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
+		};
+		073E8C5E2BF39E1D00B64A46 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 073E8C5D2BF39E1D00B64A46 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

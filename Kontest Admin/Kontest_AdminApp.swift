@@ -8,15 +8,42 @@
 import SwiftUI
 
 @main
+
 struct Kontest_AdminApp: App {
     let dependencies = Dependencies.instance
-    
+
     @State private var router = Router.instance
-    
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(router)
+            NavigationStack(path: Bindable(router).path) {
+                ContentView()
+                    .navigationDestination(for: SelectionState.self) { selectionState in
+                        switch selectionState {
+                        case .screen(let screen):
+                            switch screen {
+                            case .HomeScreen:
+                                AllUsersView()
+                                
+                            case .SettingsScreen:
+                                SettingsScreen()
+
+                            case .SettingsScreenType(let settingsScreenType):
+                                switch settingsScreenType {
+                                case .AuthenticationScreenType(let authenticationScreenType):
+                                    switch authenticationScreenType {
+                                    case .SignInScreen:
+                                        SignInScreen()
+
+                                    case .SignUpScreen:
+                                        SignUpScreen()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .environment(router)
+            }
         }
     }
 }

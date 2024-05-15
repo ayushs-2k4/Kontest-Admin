@@ -11,7 +11,13 @@ import Foundation
 class Dependencies {
     static let instance = Dependencies()
     
+    private(set) var codeForcesViewModel: CodeForcesViewModel
+    
     private init() {
         FirebaseApp.configure()
+        
+        self.codeForcesViewModel = CodeForcesViewModel()
     }
+    
+    
 }

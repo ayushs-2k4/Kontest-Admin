@@ -8,13 +8,14 @@
 import FirebaseFirestore
 import Foundation
 
-struct DBUser: Codable, Identifiable {
+struct DBUser: Codable, Identifiable, Equatable {
     var id: String { userId }
 
     let userId, firstName, lastName, email, selectedCollegeState, selectedCollege, leetcodeUsername, codeForcesUsername, codeChefUsername: String
     let dateCreated: Date
+    let codeForcesRating, codeChefRating, leetcodeRating: Float
 
-    init(userId: String, firstName: String, lastName: String, email: String, selectedCollegeState: String, selectedCollege: String, leetcodeUsername: String, codeForcesUsername: String, codeChefUsername: String, dateCreated: Date) {
+    init(userId: String, firstName: String, lastName: String, email: String, selectedCollegeState: String, selectedCollege: String, leetcodeUsername: String, codeForcesUsername: String, codeChefUsername: String, dateCreated: Date, codeForcesRating: Float, codeChefRating: Float, leetcodeRating: Float) {
         self.userId = userId
         self.firstName = firstName
         self.lastName = lastName
@@ -25,6 +26,9 @@ struct DBUser: Codable, Identifiable {
         self.codeForcesUsername = codeForcesUsername
         self.codeChefUsername = codeChefUsername
         self.dateCreated = dateCreated
+        self.codeForcesRating = codeForcesRating
+        self.codeChefRating = codeChefRating
+        self.leetcodeRating = leetcodeRating
     }
 }
 
@@ -62,14 +66,17 @@ class DataViewModel {
     func getDataOfAllRegisteredUsers() async throws {
         let allUsers = try await FireStoreUtilities.instance.usersCollection.getDocuments()
 
+        var downloadedUsers: [DBUser] = []
+
         for user in allUsers.documents {
             do {
                 let decodedUser = try user.data(as: DBUser.self, decoder: FireStoreUtilities.instance.firstoreDecoder)
-
-                users.append(decodedUser)
+                downloadedUsers.append(decodedUser)
             } catch {
                 print("Not able to decode user with error: \(error)")
             }
         }
+
+        self.users = downloadedUsers
     }
 }
