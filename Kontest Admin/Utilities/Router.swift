@@ -18,9 +18,8 @@ class Router {
 
     var path = [SelectionState]() {
         didSet {
-            currentSelectionState = path.last ?? .screen(.HomeScreen)
             logger.info("path: \(self.path)")
-            logger.info("currentSelectionState: \("\(self.currentSelectionState)")")
+            logger.info("currentSelectionState: \("\(self.path.last)")")
         }
     }
 
@@ -28,10 +27,10 @@ class Router {
     private init() {}
 
     func appendScreen(screen: Screen) {
-//        if path.contains(.screen(.SettingsScreen)), screen == .SettingsScreen {
-//        } else {
+        if screen == .SettingsScreen, path.contains(.screen(.SettingsScreen)) {
+        } else {
             path.append(SelectionState.screen(screen))
-//        }
+        }
     }
 
     func popLastScreen() {

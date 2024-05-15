@@ -17,7 +17,7 @@ struct SignInScreen: View {
 
     @FocusState private var focusedField: SignInTextField?
 
-    @Environment(Router.self) private var router
+    @State private var router = Router.instance
 
     let shouldShowSignUpScreen: Bool = true
 
@@ -191,6 +191,5 @@ enum SignInTextField {
 
 #Preview {
     SignInScreen()
-        .environment(Router.instance)
         .frame(width: 500, height: 500)
 }

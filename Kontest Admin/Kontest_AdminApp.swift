@@ -24,7 +24,7 @@ struct Kontest_AdminApp: App {
                             switch screen {
                             case .HomeScreen:
                                 AllUsersView()
-                                
+
                             case .SettingsScreen:
                                 SettingsScreen()
 
@@ -37,13 +37,21 @@ struct Kontest_AdminApp: App {
 
                                     case .SignUpScreen:
                                         SignUpScreen()
+
+                                    case .AccountInformationScreen:
+                                        AccountInformationScreen()
                                     }
+
+                                case .RotatingMapScreen:
+                                    RandomRotatingMapScreen(navigationTitle: "About Me")
                                 }
                             }
                         }
                     }
-                    .environment(router)
             }
+        }
+        .commands {
+            MyMenu(router: $router)
         }
     }
 }

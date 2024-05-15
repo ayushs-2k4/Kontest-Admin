@@ -10,7 +10,7 @@ import SwiftUI
 struct SignUpScreen: View {
     let authenticationEmailViewModel: AuthenticationEmailViewModel = .shared
 
-    @Environment(Router.self) private var router
+    @State private var router = Router.instance
 
     @FocusState private var focusedField: SignUpTextField?
 
@@ -147,18 +147,18 @@ struct SignUpScreen: View {
         }
         .navigationTitle("Sign Up")
         #if os(macOS)
-        .frame(maxWidth: 400)
+            .frame(maxWidth: 400)
         #endif
-        .padding()
-        .onAppear {
-            self.focusedField = .firstName
-        }
-        .onChange(of: focusedField) { oldValue, newValue in
-            print("Focus Changed from \(String(describing: oldValue)) to \(String(describing: newValue))")
+            .padding()
+            .onAppear {
+                self.focusedField = .firstName
+            }
+            .onChange(of: focusedField) { oldValue, newValue in
+                print("Focus Changed from \(String(describing: oldValue)) to \(String(describing: newValue))")
 
-            authenticationEmailViewModel.firstName = authenticationEmailViewModel.firstName.trimmingCharacters(in: .whitespacesAndNewlines)
-            authenticationEmailViewModel.lastName = authenticationEmailViewModel.lastName.trimmingCharacters(in: .whitespacesAndNewlines)
-        }
+                authenticationEmailViewModel.firstName = authenticationEmailViewModel.firstName.trimmingCharacters(in: .whitespacesAndNewlines)
+                authenticationEmailViewModel.lastName = authenticationEmailViewModel.lastName.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
     }
 }
 
@@ -172,6 +172,5 @@ enum SignUpTextField {
 
 #Preview {
     SignUpScreen()
-        .environment(Router.instance)
         .frame(width: 400, height: 400)
 }

@@ -44,6 +44,10 @@
 		073E8C682BF48E6E00B64A46 /* AllUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C672BF48E6E00B64A46 /* AllUsersView.swift */; };
 		073E8C6A2BF491E100B64A46 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C692BF491E100B64A46 /* SignUpScreen.swift */; };
 		073E8C6E2BF4B44500B64A46 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073E8C6D2BF4B44500B64A46 /* SettingsScreen.swift */; };
+		07C4C0C12BF4B628005D0DC9 /* RotatingMapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C4C0C02BF4B628005D0DC9 /* RotatingMapScreen.swift */; };
+		07C4C0C42BF4D747005D0DC9 /* AccountInformationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C4C0C32BF4D747005D0DC9 /* AccountInformationScreen.swift */; };
+		07C4C0C62BF4D78A005D0DC9 /* AccountInformationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C4C0C52BF4D78A005D0DC9 /* AccountInformationViewModel.swift */; };
+		07C4C0C82BF4DDDC005D0DC9 /* MyMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C4C0C72BF4DDDC005D0DC9 /* MyMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +104,10 @@
 		073E8C672BF48E6E00B64A46 /* AllUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUsersView.swift; sourceTree = "<group>"; };
 		073E8C692BF491E100B64A46 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
 		073E8C6D2BF4B44500B64A46 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		07C4C0C02BF4B628005D0DC9 /* RotatingMapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingMapScreen.swift; sourceTree = "<group>"; };
+		07C4C0C32BF4D747005D0DC9 /* AccountInformationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformationScreen.swift; sourceTree = "<group>"; };
+		07C4C0C52BF4D78A005D0DC9 /* AccountInformationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInformationViewModel.swift; sourceTree = "<group>"; };
+		07C4C0C72BF4DDDC005D0DC9 /* MyMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +261,7 @@
 				073E8C462BF38DBD00B64A46 /* FireStoreUtilities.swift */,
 				073E8C5B2BF39DA800B64A46 /* DownloadData.swift */,
 				073E8C602BF39E5200B64A46 /* Constants.swift */,
+				07C4C0C72BF4DDDC005D0DC9 /* MyMenu.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -305,6 +314,7 @@
 			children = (
 				073E8C532BF39D3800B64A46 /* CodeForcesViewModel.swift */,
 				073E8C642BF48BE700B64A46 /* ViewModel.swift */,
+				07C4C0C52BF4D78A005D0DC9 /* AccountInformationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -330,6 +340,8 @@
 			children = (
 				073E8C672BF48E6E00B64A46 /* AllUsersView.swift */,
 				073E8C6D2BF4B44500B64A46 /* SettingsScreen.swift */,
+				07C4C0C02BF4B628005D0DC9 /* RotatingMapScreen.swift */,
+				07C4C0C32BF4D747005D0DC9 /* AccountInformationScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -476,13 +488,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07C4C0C82BF4DDDC005D0DC9 /* MyMenu.swift in Sources */,
 				073E8C3A2BF37EA000B64A46 /* Router.swift in Sources */,
 				073E8C612BF39E5200B64A46 /* Constants.swift in Sources */,
 				073E8C572BF39D7600B64A46 /* CodeForcesAPIRepository.swift in Sources */,
 				073E8C2B2BF3791C00B64A46 /* AuthenticationEmailViewModel.swift in Sources */,
+				07C4C0C42BF4D747005D0DC9 /* AccountInformationScreen.swift in Sources */,
 				073E8C472BF38DBD00B64A46 /* FireStoreUtilities.swift in Sources */,
+				07C4C0C12BF4B628005D0DC9 /* RotatingMapScreen.swift in Sources */,
 				073E8C652BF48BE700B64A46 /* ViewModel.swift in Sources */,
 				073E8C3E2BF37F3E00B64A46 /* AppError.swift in Sources */,
+				07C4C0C62BF4D78A005D0DC9 /* AccountInformationViewModel.swift in Sources */,
 				073E8C4C2BF39CDF00B64A46 /* CodeForcesUserRatingAPIDTO.swift in Sources */,
 				073E8C222BF376C900B64A46 /* Dependencies.swift in Sources */,
 				073E8C402BF3857500B64A46 /* ErrorDomains.swift in Sources */,

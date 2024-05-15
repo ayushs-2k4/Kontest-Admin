@@ -9,7 +9,10 @@ import FirebaseFirestore
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(Router.self) private var router
+    @State private var router = Router.instance
+    private var bgColors: [Color] = [.indigo, .yellow, .green, .orange, .brown]
+
+    @State private var path: [SelectionState] = []
 
     var body: some View {
         if AuthenticationManager.shared.isSignedIn() {

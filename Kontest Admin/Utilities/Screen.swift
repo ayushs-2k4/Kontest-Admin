@@ -8,10 +8,6 @@
 import Foundation
 
 enum Screen: Hashable {
-//    case AllKontestScreen
-//    case SettingsScreen
-//    case PendingNotificationsScreen
-
     case HomeScreen
     case SettingsScreen
     case SettingsScreenType(SettingsScreens)
@@ -20,12 +16,12 @@ enum Screen: Hashable {
 enum SettingsScreens: Hashable {
 //    case ChangeUserNamesScreen
 //    case FilterWebsitesScreen
-//    case RotatingMapScreen
     case AuthenticationScreenType(AuthenticationScreens)
+    case RotatingMapScreen
 }
 
 enum AuthenticationScreens {
     case SignInScreen
     case SignUpScreen
-//    case AccountInformationScreen
+    case AccountInformationScreen
 }

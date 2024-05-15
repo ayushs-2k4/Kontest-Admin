@@ -7,6 +7,7 @@
 
 import FirebaseFirestore
 import Foundation
+import OSLog
 
 struct DBUser: Codable, Identifiable, Equatable {
     var id: String { userId }
@@ -55,6 +56,7 @@ extension ComparisonResult {
 
 @Observable
 class DataViewModel {
+    let logger = Logger(subsystem: "com.ayushsinghal.Kontest-Admin", category: "DataViewModel")
     static let instance = DataViewModel()
 
     var users: [DBUser] = []
@@ -65,15 +67,22 @@ class DataViewModel {
 
     func getDataOfAllRegisteredUsers() async throws {
         let allUsers = try await FireStoreUtilities.instance.usersCollection.getDocuments()
-
+        print("YES")
         var downloadedUsers: [DBUser] = []
 
+        logger.log("allUsers: \(allUsers)")
+
         for user in allUsers.documents {
+            logger.log("user: \(user.data())")
+
             do {
                 let decodedUser = try user.data(as: DBUser.self, decoder: FireStoreUtilities.instance.firstoreDecoder)
+
+                logger.log("decodedUser: \("\(decodedUser)")")
+
                 downloadedUsers.append(decodedUser)
             } catch {
-                print("Not able to decode user with error: \(error)")
+                logger.log("Not able to decode user with error: \(error)")
             }
         }
 
