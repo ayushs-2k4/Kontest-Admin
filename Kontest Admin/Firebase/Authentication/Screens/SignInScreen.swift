@@ -133,6 +133,13 @@ struct SignInScreen: View {
         #if os(macOS)
         .frame(maxWidth: 400)
         #endif
+        .alert("Become an admin!", isPresented: Bindable(authenticationEmailViewModel).showMakeAdminDialog) {
+            Button("Yes") {
+                authenticationEmailViewModel.makeExistingUserAdmin()
+            }
+
+            Button("No", role: .cancel) {}
+        }
     }
 }
 

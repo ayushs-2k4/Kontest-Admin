@@ -41,6 +41,12 @@ class Router {
 
     func goToRootView() {
         path.removeAll()
+
+        if AuthenticationManager.shared.isSignedIn() {
+            path.append(SelectionState.screen(.HomeScreen))
+        } else {
+            path.append(.screen(.SettingsScreenType(.AuthenticationScreenType(.SignInScreen))))
+        }
     }
 
     static let instance: Router = .init()

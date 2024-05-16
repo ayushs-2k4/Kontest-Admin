@@ -18,12 +18,23 @@ final class AuthenticationEmailViewModel {
     var email: String = ""
     var password: String = ""
     var confirmPassword: String = ""
+    var uid: String = ""
 
     var isLoading: Bool = false
 
     var error: Error?
 
+    var showMakeAdminDialog: Bool = false
+
     static let shared = AuthenticationEmailViewModel()
+
+    let shouldEnableMakingExistingUserAsAdmin: Bool = false
+    // for making current notAdmin user admin
+    var notAdminUserId: String = ""
+    var notAdminUserFirstName: String = ""
+    var notAdminUserLastName: String = ""
+    var notAdminUserEmail: String = ""
+    var notAdminUserDateCreated: Date = .now
 
     private init() {}
 
@@ -49,8 +60,8 @@ final class AuthenticationEmailViewModel {
             logger.log("returnedUserData: \("\(returnedUserData)")")
 
             let uid = returnedUserData.email ?? returnedUserData.uid
-            
-            let loggedInPersonData = try await AdminManager.shared.getAdmin(adminId: uid)
+            self.uid = uid
+            let _ = try await AdminManager.shared.getAdmin(adminId: uid) // so that we can throw "adminNotInDatabase" error.
 
             self.isLoading = false
             return true
@@ -83,10 +94,22 @@ final class AuthenticationEmailViewModel {
                 do {
                     self.error = AppError(title: "You are not an admin", description: "Please sign in via admin account. To make an admin account, \ncontact Support - ayushsinghals02@gmail.com")
                     print("Logged in user which is not present in database, Signing out ...")
+
+                    // for making current notAdmin user admin
+                    if shouldEnableMakingExistingUserAsAdmin {
+                        let loggedInPersonData = try await FireStoreUtilities.instance.userDocument(userId: uid).getDocument(as: DBUser.self, decoder: FireStoreUtilities.instance.firstoreDecoder)
+                        notAdminUserId = loggedInPersonData.userId
+                        notAdminUserFirstName = loggedInPersonData.firstName
+                        notAdminUserLastName = loggedInPersonData.lastName
+                        notAdminUserEmail = loggedInPersonData.email
+                        notAdminUserDateCreated = loggedInPersonData.dateCreated
+                        showMakeAdminDialog = true
+                    }
+
                     try AuthenticationManager.shared.signOut()
                     print("Logged out the user successfully which was not in database.")
                 } catch {
-                    print("Failed to sign out user which is not present in database.")
+                    print("Failed to sign out user which is not present in database, error: \(error)")
 
                     fatalError("Logged in user is not present in database.")
                 }
@@ -101,7 +124,7 @@ final class AuthenticationEmailViewModel {
             return false
         }
     }
-    
+
     func signUp() async -> Bool {
         isLoading = true
 
@@ -181,6 +204,21 @@ final class AuthenticationEmailViewModel {
         self.confirmPassword = ""
         self.isLoading = false
         self.error = nil
+    }
+
+    // for making current notAdmin user admin
+    func makeExistingUserAdmin() {
+        do {
+            try AdminManager.shared.createNewAdmin(
+                admin: DBAdminUser(
+                    adminId: notAdminUserId,
+                    firstName: notAdminUserFirstName,
+                    lastName: notAdminUserLastName,
+                    email: notAdminUserEmail,
+                    dateCreated: notAdminUserDateCreated
+                )
+            )
+        } catch {}
     }
 }
 
