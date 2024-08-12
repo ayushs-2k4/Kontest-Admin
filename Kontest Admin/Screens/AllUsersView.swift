@@ -10,7 +10,6 @@ import SwiftUI
 struct AllUsersView: View {
     let dataViewModel = DataViewModel.instance
     @State private var selectedRow: UUID?
-    @State private var sortOrder = [KeyPathComparator(\OneUserData.fullName)]
     let viewModel: ViewModel = .instance
     @State private var router = Router.instance
 
@@ -19,9 +18,9 @@ struct AllUsersView: View {
 
     var body: some View {
         Table(
-            viewModel.finalData,
+            viewModel.filteredData,
             selection: $selectedRow,
-            sortOrder: $sortOrder,
+            sortOrder: Bindable(viewModel).sortOrder,
             columnCustomization: $columnCustomization
         ) {
             TableColumn("Name", value: \.fullName)
@@ -59,9 +58,10 @@ struct AllUsersView: View {
                 .help("Settings") // Tooltip text
             }
         }
-        .onChange(of: sortOrder) {
-            viewModel.finalData.sort(using: sortOrder)
-        }
+        .searchable(text: Bindable(viewModel).searchText)
+//        .onChange(of: sortOrder) {
+//            viewModel.finalData.sort(using: sortOrder)
+//        }
     }
 }
 

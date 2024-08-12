@@ -30,6 +30,8 @@ struct OneUserData: Identifiable {
 @Observable
 class ViewModel {
     private let logger = Logger(subsystem: "com.ayushsinghal.Kontest-Admin", category: "ViewModel")
+    var searchText: String = ""
+    var sortOrder = [KeyPathComparator(\OneUserData.fullName)]
 
     private init() {
         Task {
@@ -65,4 +67,17 @@ class ViewModel {
     let dataViewModel = DataViewModel.instance
 
     var finalData: [OneUserData] = []
+    var filteredData: [OneUserData] {
+        if searchText.isEmpty {
+            finalData
+        }
+        else {
+            finalData.filter { user in
+                user.fullName.lowercased().contains(searchText.lowercased()) ||
+                    user.fullCollegeName.lowercased().contains(searchText.lowercased()) ||
+                    user.email.lowercased().contains(searchText.lowercased()) ||
+                    user.codeForcesUsername.lowercased().contains(searchText.lowercased()) || user.leetcodeUsername.lowercased().contains(searchText.lowercased()) || user.codeChefUsername.lowercased().contains(searchText.lowercased())
+            }
+        }
+    }
 }
